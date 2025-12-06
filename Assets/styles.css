@@ -5,6 +5,19 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+/* UNIVERSAL SLIDE-UP ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
 /* TRANSPARENT NAVBAR */
 .navbar {
@@ -33,10 +46,12 @@
 
 .navbar ul li a {
   color: white;
+  text-shadow: 0px 0px 5px #22a6f0; /* X, Y, Blur, Color */
   text-decoration: none;
   transition: 0.3s;
   font-weight: 400;
 }
+
 
 .navbar ul li a:hover {
   color: #22a6f0;
@@ -48,13 +63,29 @@
   position: relative;   /* needed so dropdown positions under "Production" */
 }
 
+/* Navbar solid background when scrolling */
+.navbar.solid {
+  background: #6c7a89; /* Solid white */
+  color: #000; /* Optional: change text color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.solid .logo {
+  color: white; /* Change logo color when solid */
+}
+
+.navbar.solid ul li a {
+  color: white; /* Change menu link color when solid */
+  text-shadow: none; /* Remove neon/glow effect if desired */
+}
+
 /* FORCE hide dropdown on page load */
 .dropdown-menu {
   display: none !important;
   position: absolute;
   top: 100%;
   left: 0;
-  
+  background-color: #6c7a89;
   min-width: 180px;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -220,6 +251,41 @@
   }
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px 0;
+    background: #22a6f0; /* the light grey background like in image */
+}
+
+.social-icons1 {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    
+    background: #22a6f0; /* the light grey background like in image */
+}
+
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: #45b38c; /* green hover */
+    color: #fff;
+}
+
 /* Container that holds the About section */
 .about-container {
   background-color: #e0f7ff; /* light blue margin around the section */
@@ -261,4 +327,90 @@
 
 body {
   background: linear-gradient(135deg, #e8f3ff, #ffffff);
+}
+
+/* Container */
+#products-services {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #e0f7ff, #ffffff);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Headline */
+.animated-headline {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  overflow: hidden;
+  border-right: .15em solid #62b7ff;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #62b7ff; }
+}
+
+/* Fade-in Description */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.5s forwards 1s;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Service Cards */
+.services {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.service-card img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
