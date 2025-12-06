@@ -16,8 +16,82 @@
   opacity: 1;
   transform: translateY(0);
 }
+/* Hamburger button on mobile */
+.hamburger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+/* Hamburger lines */
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  background: white; /* visible color */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
 
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  /* Move menu to be hidden above */
+  nav ul.nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: #6c7a89; /* menu background */
+    flex-direction: column;
+    max-height: 0; /* hidden */
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  nav ul.nav-links.active {
+    max-height: 1000px; /* slide-down */
+  }
+
+  nav ul.nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  nav ul.nav-links li a {
+    color: white;
+    font-size: 18px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    background: #555;
+    margin-top: 5px;
+    border-radius: 6px;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
 
 /* TRANSPARENT NAVBAR */
 .navbar {
@@ -375,42 +449,98 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Service Cards */
-.services {
+/* PRODUCTION SECTION STYLES */
+#production {
+  padding: 80px 20px;
+  background: #62b7ff; /* light background */
+ 
+}
+.production-head{
+    font-size: 25px;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+.production-container {
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
-.service-card {
-  background: #ffffff;
-  padding: 30px 20px;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 280px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+.production-text {
+  flex: 1;
+  animation: fadeInLeft 1s ease forwards;
+  opacity: 0;
 }
 
-.service-card img {
-  width: 60px;
-  margin-bottom: 15px;
-}
-
-.service-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+.production-text h2 {
+  font-size: 2.5rem;
   color: #1a1a1a;
+  margin-bottom: 20px;
 }
 
-.service-card p {
-  font-size: 1rem;
+.production-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
   color: #555;
 }
 
-.service-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.production-image {
+  flex: 1;
+  animation: fadeInRight 1s ease forwards;
+  opacity: 0;
+  text-align: center;
+}
+
+.production-image img {
+  width: 80%;          /* make image smaller */
+  max-width: 300px;    /* optional: prevent it from getting too big */
+  height: auto;        /* maintain aspect ratio */
+  object-fit: contain; /* ensures full image is shown */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.5s ease;
+}
+
+.production-image img:hover {
+  transform: scale(1.05);
+}
+
+/* ANIMATIONS */
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .production-container {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .production-text, .production-image {
+    text-align: center;
+  }
 }

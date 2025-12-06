@@ -34,6 +34,34 @@ document.addEventListener('DOMContentLoaded', function () {
   
 });
 
+  
+  
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  const dropdowns = document.querySelectorAll(".dropdown");
+
+  // Toggle slide-down menu
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  });
+
+  // Toggle dropdowns inside slide-down menu
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle("active");
+      }
+    });
+  });
+
+
+
+
+
+
+
 const reveals = document.querySelectorAll('.reveal');
 
 const revealOnScroll = () => {
@@ -57,5 +85,6 @@ window.addEventListener('scroll', function() {
     navbar.classList.remove('solid');
   }
 });
+
 
 
