@@ -75,6 +75,19 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 
 
+// Optional: Reveal timeline events on scroll
+const events = document.querySelectorAll('.timeline-event');
+
+window.addEventListener('scroll', () => {
+  const triggerBottom = window.innerHeight * 0.8;
+
+  events.forEach(event => {
+    const eventTop = event.getBoundingClientRect().top;
+    if (eventTop < triggerBottom) {
+      event.classList.add('visible');
+    }
+  });
+});
 
 
 window.addEventListener('scroll', function() {
