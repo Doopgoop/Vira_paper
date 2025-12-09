@@ -1,0 +1,450 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f6f8fb;
+  color: #333;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Hamburger button on mobile */
+.hamburger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+/* Hamburger lines */
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  background: white; /* visible color */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  /* Move menu to be hidden above */
+  nav ul.nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: (black);
+    backdrop-filter: blur(6px); /* menu background */
+    flex-direction: column;
+    max-height: 0; /* hidden */
+    overflow: scroll;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  nav ul.nav-links.active {
+    max-height: 1000px; /* slide-down */
+  }
+
+  nav ul.nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  nav ul.nav-links li a {
+    color: white;
+    font-size: 18px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    
+    margin-top: 5px;
+    border-radius: 6px;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
+
+/* TRANSPARENT NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0); /* fully transparent */
+  
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* BIGGER & SHARPER LOGO */
+.logo img {
+  height: 70px;     /* increased size */
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile — still large but balanced */
+@media (max-width: 480px) {
+  .logo img {
+    height: 60px;
+    max-width: 220px;
+  }
+}
+
+.navbar ul {
+  display: flex;
+  gap: 35px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-shadow: 0px 0px 5px #0b3d91; /* X, Y, Blur, Color */
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 400;
+}
+
+
+.navbar ul li a:hover {
+  color: #22a6f0;
+}
+
+/* --- DROPDOWN MENU (ADD ONLY THIS) --- */
+
+.navbar ul li {
+  position: relative;   /* needed so dropdown positions under "Production" */
+}
+
+/* Navbar solid background when scrolling */
+.navbar.solid {
+  background: #22a6f0; /* Solid white */
+  color: #000; /* Optional: change text color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.solid .logo {
+  color: white; /* Change logo color when solid */
+}
+
+.navbar.solid ul li a {
+  color: white; /* Change menu link color when solid */
+  text-shadow: none; /* Remove neon/glow effect if desired */
+}
+
+/* FORCE hide dropdown on page load */
+.dropdown-menu {
+  display: none !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #0b3d91;
+  min-width: 180px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 10px 0;
+  z-index: 9999;
+}
+
+/* Show only on hover */
+.dropdown:hover .dropdown-menu {
+  display: block !important;
+}
+
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background: #f2f2f2;
+}
+
+/* Hover to show dropdown */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+/* Remove dots from all menu items */
+.navbar ul,
+.dropdown-menu {
+  list-style: none !important;
+  padding-left: 0;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;   /* WHITE BUTTON */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+  filter: none;   /* keep original green icon */
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.wa-icon {
+  fill: #25D366;
+}
+.slider {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 27, 55, 0.55); /* dark overlay */
+}
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 600px;
+  padding-left: 70px;
+  top: 35%;
+}
+
+.slide-content h1 {
+  font-size: 55px;
+  font-weight: 700;
+}
+
+.slide-content p {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+/* SLIDER BUTTONS */
+/* CLEAN MODERN SLIDER ARROWS WITH GLOW ON HOVER */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 55px;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 10;
+  text-shadow: 0 0 0px rgba(255, 255, 255, 0); /* No glow normally */
+}
+
+.slide-btn:hover {
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.12);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9),
+    0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(255, 255, 255, 0.4); /* Soft white glow */
+}
+
+.prev {
+  left: 25px;
+}
+
+.next {
+  right: 25px;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .slide-content h1 {
+    font-size: 38px;
+  }
+  .slide-content {
+    padding-left: 30px;
+  }
+  .navbar {
+    padding: 15px 25px;
+  }
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px 0;
+    background: #22a6f0; /* the light grey background like in image */
+}
+
+.social-icons1 {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    
+    background: #22a6f0; /* the light grey background like in image */
+}
+
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: #45b38c; /* green hover */
+    color: #fff;
+}
+/* HERO SECTION */
+.product-hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #3aa9ff, #0077d4);
+  color: white;
+}
+
+.product-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.product-hero p {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* PRODUCT SECTIONS */
+.product-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 8%;
+  gap: 40px;
+}
+
+.product-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.product-image img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.product-text {
+  flex: 1;
+}
+
+.product-text h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #0077d4;
+}
+
+.product-text p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .product-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-section.reverse {
+    flex-direction: column;
+  }
+
+  .product-image img {
+    max-width: 100%;
+  }
+}
