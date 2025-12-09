@@ -99,7 +99,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 60px;
+  padding: 0px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,10 +108,26 @@
   
 }
 
-.navbar .logo {
-  color: white;
-  font-size: 22px;
-  font-weight: 700;
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* BIGGER & SHARPER LOGO */
+.logo img {
+  height: 70px;     /* increased size */
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile — still large but balanced */
+@media (max-width: 480px) {
+  .logo img {
+    height: 60px;
+    max-width: 220px;
+  }
 }
 
 .navbar ul {
@@ -121,7 +137,7 @@
 
 .navbar ul li a {
   color: white;
-  text-shadow: 0px 0px 5px #22a6f0; /* X, Y, Blur, Color */
+  text-shadow: 0px 0px 5px #0b3d91; /* X, Y, Blur, Color */
   text-decoration: none;
   transition: 0.3s;
   font-weight: 400;
@@ -140,7 +156,7 @@
 
 /* Navbar solid background when scrolling */
 .navbar.solid {
-  background: #0b3d91; /* Solid white */
+  background: #22a6f0; /* Solid white */
   color: #000; /* Optional: change text color */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
