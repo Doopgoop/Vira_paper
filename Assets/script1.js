@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-  
-  let slides = document.querySelectorAll('.slide');
+  // -----------------------
+  // SLIDER FUNCTIONALITY
+  // -----------------------
+  const slides = document.querySelectorAll('.slide');
   let index = 0;
 
   function showSlide(i) {
-    slides.forEach((s) => s.classList.remove('active'));
-    slides[i].classList.add('active');
+    slides.forEach(s => s.classList.remove('active'));
+    if (slides[i]) slides[i].classList.add('active');
   }
 
   function nextSlide() {
@@ -18,35 +20,37 @@ document.addEventListener('DOMContentLoaded', function () {
     showSlide(index);
   }
 
-  // Auto slide
-  let autoSlide = setInterval(nextSlide, 5000);
+  if (slides.length > 0) {
+    let autoSlide = setInterval(nextSlide, 5000);
 
-  // Buttons
-  document.querySelector('.next').addEventListener('click', () => {
-    clearInterval(autoSlide);
-    nextSlide();
-  });
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
 
-  document.querySelector('.prev').addEventListener('click', () => {
-    clearInterval(autoSlide);
-    prevSlide();
-  });
-  
-});
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+      clearInterval(autoSlide);
+      nextSlide();
+    });
 
-  
-  
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+      clearInterval(autoSlide);
+      prevSlide();
+    });
+  }
+
+  // -----------------------
+  // HAMBURGER MENU
+  // -----------------------
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
   const dropdowns = document.querySelectorAll(".dropdown");
 
-  // Toggle slide-down menu
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("active");
-  });
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navLinks.classList.toggle("active");
+    });
+  }
 
-  // Toggle dropdowns inside slide-down menu
   dropdowns.forEach(dropdown => {
     dropdown.addEventListener("click", (e) => {
       if (window.innerWidth <= 768) {
@@ -56,48 +60,61 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // -----------------------
+  // REVEAL ON SCROLL
+  // -----------------------
+  const reveals = document.querySelectorAll('.reveal');
 
+  function revealOnScroll() {
+    reveals.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+        el.classList.add('show');
+      }
+    });
+  }
 
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // reveal elements already in view on page load
 
-
-
-
-const reveals = document.querySelectorAll('.reveal');
-
-const revealOnScroll = () => {
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
-      el.classList.add('show');
-    }
-  });
-};
-
-window.addEventListener('scroll', revealOnScroll);
-
-
-// Optional: Reveal timeline events on scroll
-const events = document.querySelectorAll('.timeline-event');
-
-window.addEventListener('scroll', () => {
+  // -----------------------
+  // TIMELINE EVENTS (Optional)
+  // -----------------------
+  const events = document.querySelectorAll('.timeline-event');
   const triggerBottom = window.innerHeight * 0.8;
 
-  events.forEach(event => {
-    const eventTop = event.getBoundingClientRect().top;
-    if (eventTop < triggerBottom) {
-      event.classList.add('visible');
-    }
+  function revealTimeline() {
+    events.forEach(event => {
+      const eventTop = event.getBoundingClientRect().top;
+      if (eventTop < triggerBottom) {
+        event.classList.add('visible');
+      }
+    });
+  }
+
+  if (events.length > 0) {
+    window.addEventListener('scroll', revealTimeline);
+    revealTimeline();
+  }
+
+  // -----------------------
+  // STICKY / SOLID NAVBAR
+  // -----------------------
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('solid', window.scrollY > 50);
+    });
+  }
+
+  // -----------------------
+  // OPTIONAL: Smooth scroll for anchor links
+  // -----------------------
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+  anchorLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
   });
 });
-
-
-window.addEventListener('scroll', function() {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) { // scroll distance threshold
-    navbar.classList.add('solid');
-  } else {
-    navbar.classList.remove('solid');
-  }
-});
-
-
-
