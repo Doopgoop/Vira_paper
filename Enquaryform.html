@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Assets/styles2.css">
+</head>
+<body>
+    
+    <section class="vira-rfq">
+        
+  <div class="rfq-content">
+    <button class="back-btn" onclick="history.back()">← Back</button>
+    <h2 class="rfq-title">Request a Quotation</h2>
+    <p class="rfq-subtitle">
+      Looking for printing & packaging materials, stationery, or customized paper products? 
+      Fill in the details and our team will get back to you shortly.
+    </p>
+
+    <form class="rfq-form" action="https://formsubmit.co/YOUR-EMAIL" method="POST">
+
+      <div class="rfq-row">
+        <div class="rfq-field">
+          <label>Your Name *</label>
+          <input type="text" name="name" required>
+        </div>
+
+        <div class="rfq-field">
+          <label>Company Name</label>
+          <input type="text" name="company">
+        </div>
+      </div>
+
+      <div class="rfq-row">
+        <div class="rfq-field">
+          <label>Email *</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="rfq-field">
+          <label>Phone *</label>
+          <input type="text" name="phone" required>
+        </div>
+      </div>
+
+      <div class="rfq-field">
+        <label>Product / Service Needed *</label>
+        <input type="text" name="product" required>
+      </div>
+
+      <div class="rfq-field">
+        <label>Estimated Quantity *</label>
+        <input type="number" name="quantity" required>
+      </div>
+
+      <div class="rfq-field">
+        <label>Additional Details *</label>
+        <textarea name="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="rfq-btn">Submit Request</button>
+
+    </form>
+    
+
+  </div>
+</section>
+
+    
+</body>
+</html>
