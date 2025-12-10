@@ -166,7 +166,7 @@
 }
 
 .navbar.solid ul li a {
-  color: white; /* Change menu link color when solid */
+  color: black; /* Change menu link color when solid */
   text-shadow: none; /* Remove neon/glow effect if desired */
 }
 
@@ -176,7 +176,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #0b3d91;
+  background-color: #22a6f0;
   min-width: 180px;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
