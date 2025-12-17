@@ -949,6 +949,51 @@
   }
 }
 
+/* Brand Portfolio Styles */
+#brand-portfolio {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+  
+}
+
+.carousel-container {
+  
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  padding: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  width: calc(12 * 200px); /* 12 brands (6 + 6 duplicate) */
+  animation: scroll 20s linear infinite;
+}
+
+.brand {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.brand img {
+  max-width: 150px;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.brand:hover {
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
 /* Request quota Section */
 .quality-section {
   background: #62b7ff; /* dark navy background */
