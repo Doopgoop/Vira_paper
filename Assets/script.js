@@ -99,5 +99,14 @@ window.addEventListener('scroll', function() {
   }
 });
 
+// Animate trading graph bars
+// Animate trading bars when page loads
+const bars = document.querySelectorAll(".bar-fill");
+bars.forEach(bar => {
+  const value = bar.getAttribute("data-value");
+  setTimeout(() => {
+    bar.style.height = value + "%";
+  }, 300); // optional small delay
+});
 
 
