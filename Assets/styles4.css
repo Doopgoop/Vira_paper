@@ -672,72 +672,93 @@
   }
 }
 
-.trading-graph-section {
-  padding: 80px 20px;
-  background: #f8fafc;
-}
-
-.graph-container {
-  max-width: 1100px;
-  margin: auto;
+.vmv-section {
+  padding: 100px 20px;
+  background-color: #f7f9fc;
   text-align: center;
 }
 
-.graph-container h2 {
-  font-size: 36px;
-  margin-bottom: 12px;
-  color: #0f172a;
+.section-title {
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 60px;
+  color: #1f2937;
 }
 
-.graph-container p {
-  max-width: 700px;
-  margin: 0 auto 50px;
-  color: #475569;
-  font-size: 16px;
+/* Grid */
+.vmv-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
 }
 
-/* Bar Chart */
-.bar-chart {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  height: 320px;
-  padding: 20px;
-  border-left: 2px solid #cbd5e1;
-  border-bottom: 2px solid #cbd5e1;
-  gap: 20px;
+/* Card */
+.vmv-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
 }
 
-.bar-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
+.vmv-card:hover {
+  transform: translateY(-10px);
 }
 
-.bar {
-  width: 50px;
-  height: 100%;
+/* Image Area */
+.vmv-image {
+  width: 100%;
+  height: 200px;
   background: #e5e7eb;
-  border-radius: 10px;
-  position: relative;
   overflow: hidden;
 }
 
-.bar-fill {
-  position: absolute;
-  bottom: 0;
+.vmv-image img {
   width: 100%;
-  background: linear-gradient(to top, #1e40af, #2563eb);
-  height: 0%; /* start collapsed */
-  border-radius: 10px 10px 0 0;
-  transition: height 0.8s ease;
+  height: 100%;
+  object-fit: cover;
 }
 
-.bar-item span {
-  margin-top: 12px;
-  font-weight: 600;
-  color: #1e293b;
+/* Text */
+.vmv-card h3 {
+  font-size: 24px;
+  margin: 25px 0 15px;
+  color: #111827;
+}
+
+.vmv-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4b5563;
+  padding: 0 25px 30px;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays */
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+
+.vmv-intro {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #4b5563;
+  text-align: center;
 }
 
 
