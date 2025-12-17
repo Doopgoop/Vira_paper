@@ -444,7 +444,7 @@
 .our-story-container h2 {
   font-size: 36px;
   font-weight: 600;
-  color: #1f2933;
+  color: #62b7ff;
   margin-bottom: 30px;
   position: relative;
 }
@@ -453,7 +453,7 @@
   content: "";
   width: 70px;
   height: 4px;
-  background-color: #2c7be5;
+  background-color: #62b7ff;
   display: block;
   margin: 12px auto 0;
   border-radius: 2px;
@@ -495,7 +495,7 @@
   font-size: 38px;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #1f2933;
+  color: #62b7ff;
 }
 
 #why-text {
@@ -518,7 +518,7 @@
 }
 
 .text-content ul li strong {
-  color: #111827;
+  color: #62b7ff;
 }
 
 /* RIGHT IMAGE FRAME */
