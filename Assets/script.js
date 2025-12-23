@@ -48,13 +48,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Toggle dropdowns inside slide-down menu
   dropdowns.forEach(dropdown => {
-    dropdown.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdown.classList.toggle("active");
-      }
-    });
+  const trigger = dropdown.querySelector(":scope > a"); // ONLY parent link
+
+  trigger.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();           // ✅ only blocks dropdown toggle
+      dropdown.classList.toggle("active");
+    }
   });
+});
+
+
 
 
 
