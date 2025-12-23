@@ -953,11 +953,10 @@
 #brand-portfolio {
   padding: 50px 0;
   background-color: #f9f9f9;
-  
 }
 
 .carousel-container {
-  
+  overflow: hidden; /* REQUIRED */
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   background-color: #fff;
   padding: 20px;
@@ -965,17 +964,17 @@
 
 .carousel-track {
   display: flex;
-  width: calc(12 * 200px); /* 12 brands (6 + 6 duplicate) */
+  width: max-content; /* 🔥 KEY FIX */
   animation: scroll 20s linear infinite;
 }
 
 .brand {
-  flex: 0 0 200px;
+  min-width: 200px; /* instead of flex-basis calc */
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 10px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .brand img {
@@ -988,19 +987,16 @@
   transform: scale(1.1);
 }
 
+/* PERFECT LOOP */
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-
-/* Request quota Section */
-.quality-section {
-  background: #62b7ff; /* dark navy background */
-  padding: 20px 20px;
-  text-align: center;
-  color: #ffffff;
-}
 
 .quality-section h2 {
   font-size: 32px;
