@@ -395,40 +395,6 @@
   }
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 25px 0;
-    background: #22a6f0; /* the light grey background like in image */
-}
-
-.social-icons1 {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    
-    background: #22a6f0; /* the light grey background like in image */
-}
-
-
-.social-icons a {
-    width: 42px;
-    height: 42px;
-    background: #fff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #333;
-    font-size: 18px;
-    transition: 0.3s ease;
-}
-
-.social-icons a:hover {
-    background: #45b38c; /* green hover */
-    color: #fff;
-}
 
 .our-story-section {
   padding: 80px 20px;
@@ -488,7 +454,7 @@
   top: 0;
   width: 4px;
   height: 100%;
-  background: #22a6f0;
+  background: #62b7ff;
 }
 
 /* Each row */
@@ -504,7 +470,7 @@
 .timeline-year {
   font-size: 18px;
   font-weight: 700;
-  color: #1e4fa1;
+  color: #62b7ff;
   text-align: right;
   padding-right: 10px;
 }
@@ -712,7 +678,7 @@
 
 .journey-header h2 {
   font-size: 36px;
-  color: #1e4fa1;
+  color: #22a6f0;
   margin-bottom: 15px;
 }
 
@@ -915,7 +881,7 @@
 
 /* ===== Footer Styles ===== */
 .footer {
-  background-color: #0b3d91;
+  background-color: #62b7ff;
   color: #ffffff;
   padding: 60px 20px 20px;
   font-family: 'Poppins', sans-serif;
@@ -950,14 +916,14 @@
 }
 
 .footer ul li a {
-  color: #e0e0e0;
+  color: white;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
 }
 
 .footer ul li a:hover {
-  color: #ffc107;
+  color: blue;
 }
 
 .footer-bottom {
@@ -968,4 +934,23 @@
   font-size: 0.9rem;
   color: #d9e2ff;
 }
+.social-icons a {
+  float: left;
+  width: 45px;
+  height: 45px;
+  margin-right: 15px;
+  background: #3a3f45;
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 45px; /* centers icon vertically */
+  text-align: center; /* centers icon horizontally */
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #5a8dee;
+}
+
 

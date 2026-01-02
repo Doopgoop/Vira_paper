@@ -382,41 +382,6 @@
   }
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 25px 0;
-    background: #22a6f0; /* the light grey background like in image */
-}
-
-.social-icons1 {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    
-    background: #22a6f0; /* the light grey background like in image */
-}
-
-
-.social-icons a {
-    width: 42px;
-    height: 42px;
-    background: #fff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #333;
-    font-size: 18px;
-    transition: 0.3s ease;
-}
-
-.social-icons a:hover {
-    background: #45b38c; /* green hover */
-    color: #fff;
-}
-
 /* Container that holds the About section */
 .about-container {
   background-color: white; /* light blue margin around the section */
@@ -464,7 +429,7 @@
   font-family: "Poppins", sans-serif; /* Modern clean font */
   
   color: #ffffff;
-  background: #0a2e5c;
+  background: #62b7ff;
   border-radius: 50px;
   text-decoration: none;
   transition: 0.35s ease;
@@ -472,7 +437,7 @@
 }
 
 .Aboutbtn:hover {
-  background: #ff6b00; /* Orange on hover */
+  background: darkblue; /* Orange on hover */
   color: #ffffff;
   transform: translateY(-3px);
 }
@@ -1003,34 +968,171 @@
 }
 
 
-.quality-section h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  font-weight: 700;
+.contact-section {
+  background: #2ea7eb;
+  padding: 80px 10%;
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
 
-.quality-section p {
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 18px;
+.contact-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.contact-header h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.contact-header p {
+  opacity: 0.9;
   line-height: 1.6;
-  color: #d2d7df;
 }
 
-.quote-btn {
+/* GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* LEFT */
+.contact-details h4 {
+  margin-bottom: 30px;
+}
+
+.info {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.15);
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  margin: 30px 0;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.socials span {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.socials span:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+.whatsapp-btn {
   display: inline-block;
-  background: #f3a428; /* yellow button color */
-  padding: 12px 30px;
-  border-radius: 6px;
-  text-decoration: none;
+  background: #22c55e;
+  padding: 14px 24px;
+  border-radius: 8px;
   color: #fff;
   font-weight: 600;
-  transition: 0.3s ease;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.quote-btn:hover {
-  background: #d48d20; /* darker on hover */
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
+
+/* RIGHT */
+.enquiry-form {
+  background: rgba(255,255,255,0.15);
+  padding: 35px;
+  border-radius: 14px;
+}
+
+.enquiry-form h4 {
+  margin-bottom: 25px;
+}
+
+.enquiry-form label span {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  margin-bottom: 18px;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  outline: none;
+  transition: border 0.3s, background 0.3s;
+}
+
+.enquiry-form input::placeholder,
+.enquiry-form textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.enquiry-form input:focus,
+.enquiry-form textarea:focus {
+  border-color: #fff;
+  background: rgba(255,255,255,0.35);
+}
+
+.enquiry-form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.enquiry-form button {
+  width: 100%;
+  padding: 14px;
+  background: #fff;
+  color: #2ea7eb;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.enquiry-form button:hover {
+  background: #eaf6ff;
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
 
 /* ===== Footer Styles ===== */
@@ -1070,15 +1172,16 @@
 }
 
 .footer ul li a {
-  color: #e0e0e0;
+  color: white;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
 }
 
 .footer ul li a:hover {
-  color: #ffc107;
+  color: blue;
 }
+
 
 .footer-bottom {
   text-align: center;
@@ -1088,6 +1191,25 @@
   font-size: 0.9rem;
   color: #d9e2ff;
 }
+.social-icons a {
+  float: left;
+  width: 45px;
+  height: 45px;
+  margin-right: 15px;
+  background: #3a3f45;
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 45px; /* centers icon vertically */
+  text-align: center; /* centers icon horizontally */
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #5a8dee;
+}
+
 
 /* FIX HAMBURGER POSITION */
 .hamburger {

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Auto slide
-  let autoSlide = setInterval(nextSlide, 2500);
+  let autoSlide = setInterval(nextSlide, 5000);
 
   // Buttons
   document.querySelector('.next').addEventListener('click', () => {
