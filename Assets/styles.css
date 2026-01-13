@@ -119,12 +119,13 @@
 
 /* BIGGER & SHARPER LOGO */
 .logo img {
-  height: 70px;     /* increased size */
+  height: 105px;      /* BIGGER logo */
+  max-width: 360px;  /* allow more width */
   width: auto;
-  max-width: 260px;
   object-fit: contain;
   display: block;
 }
+
 
 /* Mobile — still large but balanced */
 @media (max-width: 480px) {
@@ -529,8 +530,9 @@
 }
 
 .product-icon {
-  width: 70px;
-  margin: 0 auto 15px;
+  width: 150px;   /* ← bigger image */
+  height: auto;
+  margin: 0 auto 30px;
   display: block;
 }
 
@@ -572,7 +574,7 @@
 }
 
 .product-btn:hover {
-  background: #62b7ff;
+  background:darkblue;
   color: #fff;
 }
 
@@ -969,7 +971,7 @@
 
 
 .contact-section {
-  background: #2ea7eb;
+  background: #62b7ff;
   padding: 80px 10%;
   color: #fff;
   font-family: Arial, sans-serif;

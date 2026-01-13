@@ -117,12 +117,13 @@
 
 /* BIGGER & SHARPER LOGO */
 .logo img {
-  height: 70px;     /* increased size */
+  height: 105px;      /* BIGGER logo */
+  max-width: 360px;  /* allow more width */
   width: auto;
-  max-width: 260px;
   object-fit: contain;
   display: block;
 }
+
 
 /* Mobile — still large but balanced */
 @media (max-width: 480px) {

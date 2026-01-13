@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expanding Info Box</title>
+  <link rel="stylesheet" href="style.css5">
+</head>
+<body>
+
+<div class="info-container">
+  <input type="checkbox" id="toggle">
+
+  <div class="info-box">
+    <h2>About Our Service</h2>
+    <p class="short-text">
+      We provide innovative digital solutions.
+    </p>
+
+    <div class="more-text">
+      <p>
+        Our services include web development, UI/UX design, branding,
+        and performance optimization. We focus on clean design,
+        scalability, and user experience to help businesses grow.
+      </p>
+    </div>
+
+    <label for="toggle" class="explore-btn">
+      Explore
+    </label>
+  </div>
+</div>
+
+</body>
+</html>
