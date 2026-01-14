@@ -137,6 +137,7 @@
 
 .navbar ul {
   display: flex;
+   align-items: center; 
   gap: 35px;
 }
 
@@ -173,6 +174,64 @@
 .navbar.solid ul li a {
   color: black; /* Change menu link color when solid */
   text-shadow: none; /* Remove neon/glow effect if desired */
+}
+.contact-btn {
+  position: relative;
+  height: 42px;
+  min-width: 130px;              /* stops circle */
+  padding: 0 22px;
+  line-height: 1;
+  border-radius: 999px;
+  border: 2px solid rgba(37, 211, 102, 0.5);
+  background: #f1f1f1;
+  color: #222;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+/* WhatsApp green hover */
+.contact-btn:hover {
+  background: #25D366;
+  color: white;
+  border-color: #25D366;
+  box-shadow: 0 0 18px rgba(37, 211, 102, 0.8);
+}
+
+/* Text layers */
+.contact-btn .label,
+.contact-btn .number {
+  position: absolute;
+  transition: 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Default */
+.contact-btn .label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-btn .number {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Hover switch */
+.contact-btn:hover .label {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.contact-btn:hover .number {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* FORCE hide dropdown on page load */
